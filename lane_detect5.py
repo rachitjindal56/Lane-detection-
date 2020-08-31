@@ -2,7 +2,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import cv2
 from PIL import Image
+import warning 
 import copy
+warning.filterwarnings('ignore')
 
 def colorfilter_hls(img):
     hls = cv2.cvtColor(img,cv2.COLOR_RGB2HLS)
@@ -152,9 +154,9 @@ edge_img = edge_detection(cropped_img, 50,100)
 
 edge_points = edge_coordinates(edge_img,20,300)
 
-average_slope_intercept(image,edge_points)
-# lines_image = draw_lines(RGB_image,edge_points)
-# image = cv2.cvtColor(lines_image, cv2.COLOR_RGB2BGR)
+# average_slope_intercept(image,edge_points)
+lines_image = draw_lines(RGB_image,edge_points)
+image = cv2.cvtColor(lines_image, cv2.COLOR_RGB2BGR)
 # print(edge_points)
 
 cv2.imshow("the frame",image)
